@@ -27,6 +27,17 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['manoj-api.herokuapp.com', '127.0.0.1']
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+
+    ],
+    'DEFAULT_PERMISSION_CLASSES':[
+                'rest_framework.permissions.IsAuthenticated',
+    ],
+
+}
 
 # Application definition
 
@@ -39,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapi',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
